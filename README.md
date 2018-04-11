@@ -7,3 +7,4 @@ Dockerfile for Android
 - platforms;android-23
 - build-tools;23.0.1
 - grade-2.14.1
+- nodev9.11.1
