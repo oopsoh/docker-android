@@ -28,3 +28,14 @@ RUN cd /usr/local \
 
 ENV GRADLE_HOME /usr/local/gradle
 ENV PATH $PATH:$GRADLE_HOME/bin
+
+# Install Node
+ENV NODE_VERSION 9.11.1
+RUN cd && \
+    wget -q http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz && \
+    tar zxf node-v${NODE_VERSION}-linux-x64.tar.gz && \
+    mv node-v${NODE_VERSION}-linux-x64 /opt/node && \
+    rm node-v${NODE_VERSION}-linux-x64.tar.gz
+    
+ENV NODE_HOME /opt/node
+ENV PATH $PATH:$NODE_HOME/bin
