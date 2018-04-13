@@ -12,7 +12,11 @@ ENV ANDROID_HOME /opt/android-sdk
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
 
 RUN yes | sdkmanager --licenses && \
-		sdkmanager "platform-tools" "extras;android;m2repository" "platforms;android-23" "build-tools;23.0.1"
+		sdkmanager "platform-tools" "extras;android;m2repository" \
+		"platforms;android-23" "build-tools;23.0.1" \
+		"platforms;android-25" "build-tools;25.0.2" \
+		"patcher;v4" "extras;google;m2repository" \
+		"build-tools;25.0.0"
 ENV PATH $PATH:$ANDROID_HOME/platform-tools
 
 RUN apt-get update && apt-get install -y lib32stdc++6 lib32z1 jq
